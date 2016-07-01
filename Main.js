@@ -23,19 +23,22 @@ function deleteButtonClicked(liItem)
 
 function countItems()
 {
-    var list = document.getElementById("List");
+    let list = document.getElementById("List");
     let totalCounter = document.getElementById("totalCounter");
-    let temp = 0;
+    let itemcounter = 0;
     
     for(let i =1; i<list.childNodes.length; i++)
     {
         if(!list.childNodes[i].childNodes[0].checked)
         {
-            temp++;
+            itemcounter++;
         }
     }
-        
-    totalCounter.innerHTML = temp + " items left.";
+    
+    if (list.childNodes.length < 2)
+        totalCounter.innerHTML = "No items";
+    else
+        totalCounter.innerHTML = itemcounter + " items left.";
 }
 
 function run() 
