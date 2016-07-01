@@ -1,0 +1,22 @@
+.checkedItem {
+    font-style: italic;
+    color: gray;
+    text-decoration: line-through;
+    background-color: #d0d0e1;
+}
+
+.uncheckedItem {
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+    background-color: normal;
+}
+
+.Dbutton {
+    float: right;
+    margin-right: 25%;
+}
+
+li {
+    margin: 15px 0 10px 0;
+}
