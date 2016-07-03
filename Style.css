@@ -22,27 +22,27 @@ li {
 }
 
 button {
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
 }
 
 #totalCounter {
     margin-left: 2%;
-    margin-right: 13%;
+    margin-right: 11%;
 }
 
 #clearCompleted {
     /*float: right;*/
     margin-right: 5%;
-    margin-left: 10%;
+    margin-left: 9%;
 }
 
 .hidden {
-    
+    visibility: hidden;
 }
 
 .shown {
-    
+    visibility: visible;
 }
 
 /*.foot {

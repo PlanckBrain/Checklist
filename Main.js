@@ -1,6 +1,60 @@
 // JavaScript File
-
+var checkboxIndex = 0; // It goes checkbox, text, delete button.
 var initialized = false;
+
+function allList()
+{
+    var list = document.getElementById("List");
+    
+    for (let i =1; i<list.childNodes.length; i++)
+    {
+        list.childNodes[i].style.visibility="visible";
+    }
+}
+
+function activeList()
+{
+    var list = document.getElementById("List");
+    
+    for (let i =1; i<list.childNodes.length; i++)
+    {
+        if(list.childNodes[i].childNodes[checkboxIndex].checked)
+        {
+            list.childNodes[i].style.visibility="hidden";
+        } else
+            list.childNodes[i].style.visibility="visible";
+    }
+}
+
+function completeList()
+{
+    var list = document.getElementById("List");
+    
+    for (let i =1; i<list.childNodes.length; i++)
+    {
+        if(list.childNodes[i].childNodes[checkboxIndex].checked)
+        {
+            list.childNodes[i].style.visibility="visible";
+        } else
+            list.childNodes[i].style.visibility="hidden";
+    }
+}
+
+function showButton()
+{
+    var clearButton = document.getElementById("clearCompleted");
+    var list = document.getElementById("List");
+    
+    for(let i =1; i<list.childNodes.length; i++)
+    {
+        if(list.childNodes[i].childNodes[checkboxIndex].checked)
+        {
+            clearButton.className="shown";
+            return;
+        }
+    }
+    clearButton.className="hidden";
+}
 
 function clearChecked()
 {
@@ -9,17 +63,18 @@ function clearChecked()
     for (let i = 1; i<list.childNodes.length; i++)
     {
         let tempPointer = list.childNodes[i];
-        if(list.childNodes[i].childNodes[0].checked)
+        if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
             list.removeChild(tempPointer);
             --i; //So you don't move on to the next index if you delete an index.
         }
     }
+    showButton(); //change for more efficiency
 }
 
 function checkboxChanged(liItem)
 {
-    if(liItem.childNodes[0].checked)
+    if(liItem.childNodes[checkboxIndex].checked)
     {
         liItem.className="checkedItem";
     } else
@@ -27,6 +82,7 @@ function checkboxChanged(liItem)
         liItem.className="uncheckedItem";
     }
     countItems();
+    showButton();
 }
 
 function deleteButtonClicked(liItem)
@@ -35,6 +91,7 @@ function deleteButtonClicked(liItem)
     
     list.removeChild(liItem);
     countItems();
+    showButton();
 }
 
 function countItems()
@@ -45,7 +102,7 @@ function countItems()
     
     for(let i =1; i<list.childNodes.length; i++)
     {
-        if(!list.childNodes[i].childNodes[0].checked)
+        if(!list.childNodes[i].childNodes[checkboxIndex].checked)
         {
             itemcounter++;
         }
@@ -64,8 +121,18 @@ function run()
     if (!initialized)
     {
         initialized = true;
+        
         let clearButton = document.getElementById("clearCompleted");
-        clearButton.addEventListener("click",function(){clearChecked()});
+        clearButton.addEventListener("click",function() {clearChecked()});
+        
+        let allButton = document.getElementById("allButton");
+        allButton.addEventListener("click",function() {allList()});
+        
+        let activeButton = document.getElementById("activeButton");
+        activeButton.addEventListener("click",function() {activeList()});
+        
+        let completedButton = document.getElementById("completedButton");
+        completedButton.addEventListener("click",function() {completeList()});
     }
     
     var list = document.getElementById("List");
