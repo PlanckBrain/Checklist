@@ -1,5 +1,21 @@
 // JavaScript File
-let listItems;
+
+var initialized = false;
+
+function clearChecked()
+{
+    var list = document.getElementById("List");
+    
+    for (let i = 1; i<list.childNodes.length; i++)
+    {
+        let tempPointer = list.childNodes[i];
+        if(list.childNodes[i].childNodes[0].checked)
+        {
+            list.removeChild(tempPointer);
+            --i; //So you don't move on to the next index if you delete an index.
+        }
+    }
+}
 
 function checkboxChanged(liItem)
 {
@@ -35,15 +51,23 @@ function countItems()
         }
     }
     
-    if (list.childNodes.length < 2)
-        totalCounter.innerHTML = "No items";
+    if (itemcounter == 0)
+        totalCounter.innerHTML = "No items.";
+    else if (itemcounter == 1)
+        totalCounter.innerHTML = "1 item.";
     else
         totalCounter.innerHTML = itemcounter + " items left.";
 }
 
 function run() 
 {
-    //var entireList = document.getElementById("Entire_toDo_list");
+    if (!initialized)
+    {
+        initialized = true;
+        let clearButton = document.getElementById("clearCompleted");
+        clearButton.addEventListener("click",function(){clearChecked()});
+    }
+    
     var list = document.getElementById("List");
     
     if(event.keyCode == 13 || event.which == 13)
@@ -72,12 +96,3 @@ function run()
         countItems();
     }
 }
-
-
-/*function checkedLlists() //MABEY?
-{
-        if(listItems[0].childNodes[0].checked)
-        {
-            alert("check");
-        }
-}*/
