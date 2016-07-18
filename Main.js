@@ -1,5 +1,5 @@
 // JavaScript File
-var checkboxIndex = 0; // It goes checkbox, text, delete button.
+const checkboxIndex = 0; // It goes checkbox, text, delete button.
 var initialized = false;
 
 function allList()

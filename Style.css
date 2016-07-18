@@ -32,9 +32,13 @@ button {
 }
 
 #clearCompleted {
-    /*float: right;*/
     margin-right: 5%;
     margin-left: 9%;
+}
+
+#Input_box {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hidden {
@@ -44,7 +48,3 @@ button {
 .shown {
     visibility: visible;
 }
-
-/*.foot {
-    display: inline;
-}*/
