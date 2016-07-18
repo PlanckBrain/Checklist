@@ -6,7 +6,7 @@ function allList()
 {
     var list = document.getElementById("List");
     
-    for (let i =1; i<list.childNodes.length; i++)
+    for (let i =0; i<list.childNodes.length; i++)
     {
         list.childNodes[i].style.visibility="visible";
     }
@@ -16,7 +16,7 @@ function activeList()
 {
     var list = document.getElementById("List");
     
-    for (let i =1; i<list.childNodes.length; i++)
+    for (let i =0; i<list.childNodes.length; i++)
     {
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
@@ -30,7 +30,7 @@ function completeList()
 {
     var list = document.getElementById("List");
     
-    for (let i =1; i<list.childNodes.length; i++)
+    for (let i =0; i<list.childNodes.length; i++)
     {
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
@@ -40,12 +40,12 @@ function completeList()
     }
 }
 
-function showButton()
+function showClearButton()
 {
     var clearButton = document.getElementById("clearCompleted");
     var list = document.getElementById("List");
     
-    for(let i =1; i<list.childNodes.length; i++)
+    for(let i =0; i<list.childNodes.length; i++)
     {
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
@@ -60,7 +60,7 @@ function clearChecked()
 {
     var list = document.getElementById("List");
     
-    for (let i = 1; i<list.childNodes.length; i++)
+    for (let i = 0; i<list.childNodes.length; i++)
     {
         let tempPointer = list.childNodes[i];
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
@@ -69,7 +69,7 @@ function clearChecked()
             --i; //So you don't move on to the next index if you delete an index.
         }
     }
-    showButton(); //change for more efficiency
+    showClearButton(); //change for more efficiency
 }
 
 function checkboxChanged(liItem)
@@ -82,7 +82,7 @@ function checkboxChanged(liItem)
         liItem.className="uncheckedItem";
     }
     countItems();
-    showButton();
+    showClearButton();
 }
 
 function deleteButtonClicked(liItem)
@@ -91,7 +91,7 @@ function deleteButtonClicked(liItem)
     
     list.removeChild(liItem);
     countItems();
-    showButton();
+    showClearButton();
 }
 
 function countItems()
@@ -100,7 +100,7 @@ function countItems()
     let totalCounter = document.getElementById("totalCounter");
     let itemcounter = 0;
     
-    for(let i =1; i<list.childNodes.length; i++)
+    for(let i =0; i<list.childNodes.length; i++)
     {
         if(!list.childNodes[i].childNodes[checkboxIndex].checked)
         {
