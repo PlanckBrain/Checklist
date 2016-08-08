@@ -8,7 +8,7 @@ function allList()
     
     for (let i =0; i<list.childNodes.length; i++)
     {
-        list.childNodes[i].style.visibility="visible";
+        list.childNodes[i].style.display="";
     }
 }
 
@@ -20,9 +20,9 @@ function activeList()
     {
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
-            list.childNodes[i].style.visibility="hidden";
+            list.childNodes[i].style.display="none";
         } else
-            list.childNodes[i].style.visibility="visible";
+            list.childNodes[i].style.display="";
     }
 }
 
@@ -34,9 +34,9 @@ function completeList()
     {
         if(list.childNodes[i].childNodes[checkboxIndex].checked)
         {
-            list.childNodes[i].style.visibility="visible";
+            list.childNodes[i].style.display="";
         } else
-            list.childNodes[i].style.visibility="hidden";
+            list.childNodes[i].style.display="none";
     }
 }
 
